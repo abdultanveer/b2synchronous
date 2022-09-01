@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
     EditText etContact;
+    public static String TAG = HomeActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
