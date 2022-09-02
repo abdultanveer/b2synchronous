@@ -23,6 +23,35 @@ class MainActivity : AppCompatActivity() {
         Log.i(TAG,"im in oncreate")
     }
 
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG,"starting-ui visible")
+
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG,"resuming-restore state")
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG,"pausing-save state")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG,"stopping")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG,"destroying")
+    }
+
     fun clickHandler(viewClicked: View) {
         when(viewClicked.id){
             R.id.btnLogin -> {startHomeActivity()}
@@ -65,9 +94,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, dIntent: Intent?) {
         super.onActivityResult(requestCode, resultCode, dIntent)
-        var contactData = dIntent?.extras?.getString("con")
-        tvMain.text = contactData
+        if(resultCode == RESULT_OK) {
+            var contactData = dIntent?.extras?.getString("con")
+            tvMain.text = contactData
+        }
     }
-
-
 }
