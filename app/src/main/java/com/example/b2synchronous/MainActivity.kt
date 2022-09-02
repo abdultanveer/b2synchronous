@@ -1,5 +1,6 @@
 package com.example.b2synchronous
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,9 +21,9 @@ class MainActivity : AppCompatActivity() {
     fun clickHandler(viewClicked: View) {
        // var name: String = etName.text.toString()
         Log.e(TAG,"click handler")
-
         var name = etName.text.toString()
-        Toast.makeText(this,name,Toast.LENGTH_SHORT).show()
+        var hIntent = Intent(this,HomeActivity::class.java)
+        startActivity(hIntent)
     }
 
     companion object{
