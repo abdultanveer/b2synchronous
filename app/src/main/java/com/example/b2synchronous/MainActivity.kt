@@ -8,15 +8,18 @@ import android.provider.AlarmClock
 import android.util.Log
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     lateinit var etName : EditText //declaration
+    lateinit var tvMain: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main) //inflated -layoutinflater
         etName = findViewById(R.id.etName)
+        tvMain = findViewById(R.id.tvMain)
         Log.i(TAG,"im in oncreate")
     }
 
@@ -38,9 +41,9 @@ class MainActivity : AppCompatActivity() {
         Log.e(TAG, "click handler")
         var name = etName.text.toString()
 
-        var hIntent = Intent(this, HomeActivity::class.java)
-        hIntent.putExtra("nkey", name)
-        startActivity(hIntent)
+        var hIntent = Intent(this, HomeActivity::class.java)//explicit intent
+        //hIntent.putExtra("nkey", name)
+        startActivityForResult(hIntent,123)
     }
 
     fun createAlarm(message: String, hour: Int, minutes: Int) {
@@ -59,4 +62,12 @@ class MainActivity : AppCompatActivity() {
     companion object{
         var TAG = MainActivity::class.java.simpleName
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, dIntent: Intent?) {
+        super.onActivityResult(requestCode, resultCode, dIntent)
+        var contactData = dIntent?.extras?.getString("con")
+        tvMain.text = contactData
+    }
+
+
 }
