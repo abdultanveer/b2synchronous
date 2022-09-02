@@ -18,6 +18,9 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         etContact = findViewById(R.id.etContact);
         tvHome = findViewById(R.id.tvHome);
+
+       String name = getIntent().getExtras().getString("nkey");
+       tvHome.setText("hello "+name);
     }
 
     public void handleClicks(View viewClicked) {

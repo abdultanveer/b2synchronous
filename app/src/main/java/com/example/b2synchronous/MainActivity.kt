@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity() {
        // var name: String = etName.text.toString()
         Log.e(TAG,"click handler")
         var name = etName.text.toString()
+
         var hIntent = Intent(this,HomeActivity::class.java)
+        hIntent.putExtra("nkey",name)
         startActivity(hIntent)
     }
 
