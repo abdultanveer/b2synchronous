@@ -58,10 +58,13 @@ class MainActivity : AppCompatActivity() {
             R.id.btnDial ->{startDialer()}
             R.id.btnAlarm -> {createAlarm("sync",10,59)}
         }
-
+        print("outside")
     }
 
     private fun startDialer() {
+        var a = 10;
+        var b = a * 20;
+        throw NullPointerException("dial ex")
         var dIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:123456"))
         startActivity(dIntent)
     }
