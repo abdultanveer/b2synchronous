@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.b2synchronous.model.Student
 
 class MainActivity : AppCompatActivity() {
     lateinit var etName : EditText //declaration
@@ -64,9 +65,26 @@ class MainActivity : AppCompatActivity() {
     private fun startDialer() {
         var a = 10;
         var b = a * 20;
+        add(10,20)
+
+       for(i in 1..10){
+           var c = a * i
+          var f = 30
+           var z =  c + f
+
+       }
+
+        var studentAbdul = Student("abdul",123,5678)
         throw NullPointerException("dial ex")
         var dIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:123456"))
         startActivity(dIntent)
+    }
+
+    /**
+     * this method adds 2 nos
+     */
+    private fun add(i: Int, i1: Int) {
+
     }
 
     private fun startHomeActivity() {
