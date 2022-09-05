@@ -2,6 +2,8 @@ package com.example.b2synchronous;
 
 import junit.framework.TestCase;
 
+import org.junit.Ignore;
+
 public class CalculatorTest extends TestCase {
 
     Calculator mCalculator;
@@ -13,6 +15,7 @@ public class CalculatorTest extends TestCase {
 
     public void tearDown() throws Exception {
     }
+
 
     public void testAdd() {
         int expected = 45;
