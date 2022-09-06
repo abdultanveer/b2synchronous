@@ -1,11 +1,15 @@
 package com.example.b2synchronous
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.AlarmClock
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -16,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var etName : EditText //declaration
     lateinit var tvMain: TextView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main) //inflated -layoutinflater
@@ -24,34 +29,28 @@ class MainActivity : AppCompatActivity() {
         Log.i(TAG,"im in oncreate")
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.i(TAG,"starting-ui visible")
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+         super.onCreateOptionsMenu(menu)
+       // var menuInflater: MenuInflater = getMenuInflater()
+        menuInflater.inflate(R.menu.main_menu,menu)
+        return true
     }
 
+    override fun onOptionsItemSelected(mItem: MenuItem): Boolean {
+         super.onOptionsItemSelected(mItem)
+        when(mItem.itemId){
+            R.id.mi_settings -> {
+                Toast.makeText(this,"opening settings",Toast.LENGTH_SHORT).show()
+            }
+            R.id.mi_logout -> {
+                Toast.makeText(this,"logging out",Toast.LENGTH_SHORT).show()
 
-    override fun onResume() {
-        super.onResume()
-        Log.i(TAG,"resuming-restore state")
-
+            }
+        }
+        return true
     }
 
-    override fun onPause() {
-        super.onPause()
-        Log.i(TAG,"pausing-save state")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.i(TAG,"stopping")
-
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i(TAG,"destroying")
-    }
 
     fun clickHandler(viewClicked: View) {
         when(viewClicked.id){
