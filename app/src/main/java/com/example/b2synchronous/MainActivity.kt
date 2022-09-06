@@ -14,7 +14,8 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.b2synchronous.model.Student
 
-class MainActivity : AppCompatActivity() {
+//no need of extends [:] and implements [,]
+class MainActivity : AppCompatActivity(), View.OnFocusChangeListener {
     lateinit var etName : EditText //declaration
     lateinit var tvMain: TextView
     lateinit var loginButton: Button
@@ -29,6 +30,8 @@ class MainActivity : AppCompatActivity() {
 
         registerForContextMenu(loginButton)
         Log.i(TAG,"im in oncreate")
+
+        etName.setOnFocusChangeListener(this)
     }
 
 
@@ -137,6 +140,15 @@ class MainActivity : AppCompatActivity() {
         if(resultCode == RESULT_OK) {
             var contactData = dIntent?.extras?.getString("con")
             tvMain.text = contactData
+        }
+    }
+
+    override fun onFocusChange(p0: View?, isFocussed: Boolean) {
+        if(isFocussed){
+            Toast.makeText(this,"focussed",Toast.LENGTH_SHORT).show()
+        }
+        else{
+            Toast.makeText(this,"lost focus",Toast.LENGTH_SHORT).show()
         }
     }
 }
