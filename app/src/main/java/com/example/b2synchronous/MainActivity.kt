@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), View.OnFocusChangeListener {
         loginButton = findViewById(R.id.btnLogin)
 
         registerForContextMenu(loginButton)
-        Log.i(TAG,"im in oncreate")
+        Log.i(TAG,"im in oncreate"+ triple(5))
 
         etName.setOnFocusChangeListener(this)
     }
@@ -151,4 +151,11 @@ class MainActivity : AppCompatActivity(), View.OnFocusChangeListener {
             Toast.makeText(this,"lost focus",Toast.LENGTH_SHORT).show()
         }
     }
+
+    fun double(x: Int): Int {
+        return 2 * x
+    }
+
+    fun triple(x: Int) =  3 * x
+
 }

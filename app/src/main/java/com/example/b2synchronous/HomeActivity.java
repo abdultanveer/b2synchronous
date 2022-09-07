@@ -10,12 +10,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
-    EditText etContact;
+    EditText etContact; //instance variable -- partition of the box
     TextView tvHome;
     public static String TAG = HomeActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        int a = 10; //local variable
         setContentView(R.layout.activity_home);
         etContact = findViewById(R.id.etContact);
         tvHome = findViewById(R.id.tvHome);
