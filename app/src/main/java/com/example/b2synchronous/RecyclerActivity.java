@@ -12,5 +12,6 @@ public class RecyclerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
         RecyclerView rView = findViewById(R.id.languagesRview);
+        LangsAdapter adapter = new LangsAdapter(languages);
     }
 }

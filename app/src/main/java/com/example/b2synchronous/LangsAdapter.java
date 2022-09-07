@@ -1,31 +1,50 @@
 package com.example.b2synchronous;
 
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class LangsAdapter extends RecyclerView.Adapter<LangsAdapter.LViewHolder> {
+    public static String TAG = LangsAdapter.class.getSimpleName();
+
+    String[] mLanguages;
+    public LangsAdapter(String[] languages) {
+        mLanguages = languages;
+    }
+
     @NonNull
     @Override
     public LViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        Log.i(TAG,"nikhil has bought a plank from market");
+        View plankBought = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_rview,parent,false);
+        return new LViewHolder(plankBought);
     }
 
     @Override
     public void onBindViewHolder(@NonNull LViewHolder holder, int position) {
+        Log.i(TAG,"rumaan writing the dish name on the plank"+mLanguages[position]);
+        holder.rowTextView.setText(mLanguages[position]);
+
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        Log.i(TAG,"megha countingthe no of items in the data set");
+        return mLanguages.length;
     }
 
     class LViewHolder extends RecyclerView.ViewHolder {
-        public LViewHolder(@NonNull View itemView) {
-            super(itemView);
+        TextView rowTextView;
+        public LViewHolder(@NonNull View plankBought) {
+            super(plankBought);
+            Log.i(TAG,"abdul is storing the plan");
+            rowTextView = plankBought.findViewById(R.id.tvRow);
         }
     }
 }
