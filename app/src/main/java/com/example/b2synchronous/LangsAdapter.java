@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class LangsAdapter extends RecyclerView.Adapter<LangsAdapter.LViewHolder> {
     public static String TAG = LangsAdapter.class.getSimpleName();
-
+    int noTimesNihilWentMarket = 0;
     String[] mLanguages;
     public LangsAdapter(String[] languages) {
         mLanguages = languages;
@@ -20,7 +20,7 @@ public class LangsAdapter extends RecyclerView.Adapter<LangsAdapter.LViewHolder>
     @NonNull
     @Override
     public LViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.i(TAG,"nikhil has bought a plank from market");
+        Log.i(TAG,"nikhil has bought a plank from market--"+ ++noTimesNihilWentMarket);
         View plankBought = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_rview,parent,false);
         return new LViewHolder(plankBought);
     }
