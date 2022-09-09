@@ -80,8 +80,14 @@ class MainActivity : AppCompatActivity(), View.OnFocusChangeListener {
             R.id.btnLogin -> {startHomeActivity()}
             R.id.btnDial ->{startDialer()}
             R.id.btnAlarm -> {createAlarm("sync",10,59)}
+            R.id.btnMTest -> {getSetData()}
         }
-        print("outside")
+       // print("outside")
+    }
+
+    private fun getSetData() {
+        var name = etName.text.toString()
+        tvMain.setText(name)
     }
 
     private fun startDialer() {

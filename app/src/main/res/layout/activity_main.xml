@@ -64,12 +64,12 @@
 
     <TextView
         android:id="@+id/tvMain"
+        style="@style/fontstyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="81dp"
         android:layout_marginEnd="51dp"
         android:text="TextView"
-        style="@style/fontstyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,24 +85,35 @@
 
     <TextView
         android:id="@+id/textView"
+        style="@style/fontstyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
         android:text="TextView"
-       style="@style/fontstyle"
         android:textColor="@color/design_default_color_primary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnDial" />
 
     <TextView
         android:id="@+id/textView2"
+        style="@style/fontstyle.red"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
         android:text="TextView"
-        style="@style/fontstyle.red"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnMTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="7dp"
+        android:onClick="clickHandler"
+        android:text="Test"
+        app:layout_constraintBottom_toBottomOf="@+id/etPassword"
+        app:layout_constraintStart_toEndOf="@+id/etPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>
