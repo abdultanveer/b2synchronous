@@ -8,6 +8,7 @@ import android.provider.AlarmClock
 import android.util.Log
 import android.view.View
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.example.b2synchronous.model.Student
@@ -15,12 +16,14 @@ import com.example.b2synchronous.model.Student
 class MainActivity : AppCompatActivity() {
     lateinit var etName : EditText //declaration
     lateinit var tvMain: TextView
+    lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main) //inflated -layoutinflater
         etName = findViewById(R.id.etName)
         tvMain = findViewById(R.id.tvMain)
+        progressBar = findViewById(R.id.progressBar)
         Log.i(TAG,"im in oncreate")
     }
 
@@ -37,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun downloadImage() {
-        var downloadTask = DownloadTask()
+        var downloadTask = DownloadTask(progressBar)
         downloadTask.execute("http://imagedownloadurl.com")
     }
 
