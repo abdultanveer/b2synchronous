@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">b2synchronous</string>
+    <string name="enter_name">enter your name</string>
+    <string name="enter_password">enter your secret code</string>
 </resources>

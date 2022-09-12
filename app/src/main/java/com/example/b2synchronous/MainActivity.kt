@@ -24,42 +24,21 @@ class MainActivity : AppCompatActivity() {
         Log.i(TAG,"im in oncreate")
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.i(TAG,"starting-ui visible")
 
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-        Log.i(TAG,"resuming-restore state")
-
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.i(TAG,"pausing-save state")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.i(TAG,"stopping")
-
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i(TAG,"destroying")
-    }
 
     fun clickHandler(viewClicked: View) {
         when(viewClicked.id){
             R.id.btnLogin -> {startHomeActivity()}
             R.id.btnDial ->{startDialer()}
             R.id.btnAlarm -> {createAlarm("sync",10,59)}
+            R.id.btnDownload -> {downloadImage()}
         }
         print("outside")
+    }
+
+    private fun downloadImage() {
+        var downloadTask = DownloadTask()
+        downloadTask.execute("http://imagedownloadurl.com")
     }
 
     private fun startDialer() {
