@@ -13,7 +13,7 @@
         android:layout_marginStart="53dp"
         android:layout_marginTop="119dp"
         android:onClick="handleClicks"
-        android:text="finish"
+        android:text="get name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,4 +37,16 @@
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/etContact"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="54dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
