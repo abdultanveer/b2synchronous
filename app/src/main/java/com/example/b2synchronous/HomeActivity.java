@@ -3,6 +3,7 @@ package com.example.b2synchronous;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 public class HomeActivity extends AppCompatActivity {
     EditText etContact;
     TextView tvHome;
+    SmsReceiver smsReceiver;
     public static String TAG = HomeActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,21 @@ public class HomeActivity extends AppCompatActivity {
 
       /* String name = getIntent().getExtras().getString("nkey");
        tvHome.setText("hello "+name);*/
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        IntentFilter intentFilter = new IntentFilter();
+         smsReceiver = new SmsReceiver();
+        intentFilter.addAction("android.provider.Telephony.SMS_RECEIVED");
+        registerReceiver(smsReceiver,intentFilter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(smsReceiver);
     }
 
     public void handleClicks(View viewClicked) {
