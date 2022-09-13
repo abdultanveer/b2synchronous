@@ -61,6 +61,8 @@ class MainActivity : AppCompatActivity() {
             .setContentText("android kotlin training")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
+            .addAction(R.drawable.ic_baseline_snooze_24, "snooze",
+                pendingIntent)
 
         val notificationManager: NotificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
