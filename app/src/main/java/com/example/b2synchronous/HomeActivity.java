@@ -9,11 +9,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
+
 public class HomeActivity extends AppCompatActivity {
     EditText etContact;
     TextView tvHome;
     TextView tvAuthor;
     public static String TAG = HomeActivity.class.getSimpleName();
+    private FirebaseApp firebaseApp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,14 +25,24 @@ public class HomeActivity extends AppCompatActivity {
         etContact = findViewById(R.id.etContact);
         tvHome = findViewById(R.id.tvHome);
         tvAuthor = findViewById(R.id.tvAuthor);
+        firebaseApp = FirebaseApp.initializeApp(this);
 
       /* String name = getIntent().getExtras().getString("nkey");
        tvHome.setText("hello "+name);*/
     }
 
+
     public void handleClicks(View viewClicked) {
        // sendContactData();
-        searchBooks();
+        switch (viewClicked.getId()){
+            case R.id.button2:
+                searchBooks();
+                break;
+            case R.id.btnFcm:
+
+                break;
+        }
+
     }
 
     private void sendContactData() {
@@ -46,6 +60,8 @@ public class HomeActivity extends AppCompatActivity {
     public void searchBooks(){
         String queryString = etContact.getText().toString();
         new FetchBook(tvHome,tvAuthor).execute(queryString);
-
     }
+
+
+
 }

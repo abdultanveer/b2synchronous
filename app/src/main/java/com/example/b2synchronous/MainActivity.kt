@@ -11,10 +11,14 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.b2synchronous.model.Student
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
     lateinit var etName : EditText //declaration
     lateinit var tvMain: TextView
+    var TAG = MainActivity::class.java.simpleName
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -119,5 +123,24 @@ class MainActivity : AppCompatActivity() {
             var contactData = dIntent?.extras?.getString("con")
             tvMain.text = contactData
         }
+    }
+
+
+    fun getRegnTokenFCM(view: android.view.View) {
+        FirebaseMessaging.getInstance().token
+            .addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                    return@OnCompleteListener
+                }
+
+                // Get new FCM registration token
+                val token: String = task.getResult().toString()
+
+                // Log and toast
+                //val msg = getString(R.string.msg_token_fmt, token)
+                Log.d(TAG, token)
+                Toast.makeText(this, token, Toast.LENGTH_SHORT).show()
+            })
     }
 }
