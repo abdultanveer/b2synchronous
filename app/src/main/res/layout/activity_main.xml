@@ -26,7 +26,7 @@
         android:layout_marginTop="47dp"
         android:ems="10"
         android:hint="enter password"
-        android:inputType="textPassword"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
 
