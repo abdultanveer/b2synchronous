@@ -78,8 +78,28 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="39dp"
-        android:text="fcm token"
         android:onClick="getRegnTokenFCM"
+        android:text="fcm token"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnDial" />
+
+    <Button
+        android:id="@+id/btnPut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="put"
+        android:onClick="putFirestore"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnFcmtoken"
+        app:layout_constraintStart_toEndOf="@+id/btnFcmtoken" />
+
+    <Button
+        android:id="@+id/btnGet"
+        android:onClick="getFireStore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:text="get"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnPut"
+        app:layout_constraintStart_toEndOf="@+id/btnPut" />
 </androidx.constraintlayout.widget.ConstraintLayout>
