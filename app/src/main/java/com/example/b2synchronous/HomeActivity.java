@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.b2synchronous.databases.DbOperations;
 import com.google.firebase.FirebaseApp;
 
 public class HomeActivity extends AppCompatActivity {
@@ -18,6 +19,8 @@ public class HomeActivity extends AppCompatActivity {
     public static String TAG = HomeActivity.class.getSimpleName();
     private FirebaseApp firebaseApp;
 
+    DbOperations dbOperations;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,10 +29,14 @@ public class HomeActivity extends AppCompatActivity {
         tvHome = findViewById(R.id.tvHome);
         tvAuthor = findViewById(R.id.tvAuthor);
         firebaseApp = FirebaseApp.initializeApp(this);
+        dbOperations = new DbOperations(this);
+        dbOperations.openDb();
 
       /* String name = getIntent().getExtras().getString("nkey");
        tvHome.setText("hello "+name);*/
     }
+
+
 
 
     public void handleClicks(View viewClicked) {
@@ -63,5 +70,20 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-
+    public void dbHandler(View view) {
+        switch (view.getId()){
+            case R.id.btnCommit:
+                EditText etTitle = findViewById(R.id.etTitle);
+                EditText etSubtitle = findViewById(R.id.etSubtitle);
+                String title = etTitle.getText().toString();
+                String subtitle = etSubtitle.getText().toString();
+                dbOperations.insertRow(title,subtitle);
+                break;
+            case R.id.btnRetreive:
+               String result = dbOperations.readRow();
+               TextView tvResult = findViewById(R.id.tvDbResult);
+               tvResult.setText(result);
+                break;
+        }
+    }
 }
