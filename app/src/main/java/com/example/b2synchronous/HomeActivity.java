@@ -2,7 +2,9 @@ package com.example.b2synchronous;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -10,7 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.b2synchronous.databases.DbOperations;
+import com.example.b2synchronous.databases.FeedReaderContract;
 import com.google.firebase.FirebaseApp;
+import com.example.b2synchronous.databases.FeedReaderContract.FeedEntry;
 
 public class HomeActivity extends AppCompatActivity {
     EditText etContact;
@@ -85,5 +89,13 @@ public class HomeActivity extends AppCompatActivity {
                tvResult.setText(result);
                 break;
         }
+    }
+
+    public void insertMyContentProvider(View view) {
+        Uri uriSms = Uri.parse("content://sync.todo/entry");
+        ContentValues values = new ContentValues();
+        values.put(FeedEntry.COLUMN_NAME_TITLE,"HACP title");
+        values.put(FeedEntry.COLUMN_NAME_SUBTITLE,"HACP subtitle");
+        getContentResolver().insert(uriSms,values);
     }
 }
