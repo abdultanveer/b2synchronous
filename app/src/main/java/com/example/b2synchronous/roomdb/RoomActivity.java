@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.b2synchronous.Aquarium;
 import com.example.b2synchronous.R;
 
 public class RoomActivity extends AppCompatActivity {
@@ -17,12 +18,15 @@ public class RoomActivity extends AppCompatActivity {
     int mPersonId;
     Intent intent;
     private AppDatabase mDb;
+    private Aquarium myAquarium;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room);
+        myAquarium = new Aquarium(this.getApplication(),
+                getLifecycle());
         initViews();
         mDb = AppDatabase.getInstance(getApplicationContext());
 
