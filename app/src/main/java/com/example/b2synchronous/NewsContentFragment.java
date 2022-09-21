@@ -10,6 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class NewsContentFragment extends Fragment {
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -17,4 +20,6 @@ public class NewsContentFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_news_content, container,false);
         return view;
     }
+
+
 }
