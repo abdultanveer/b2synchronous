@@ -3,13 +3,23 @@ package com.example.b2synchronous;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
 public class CateringService extends Service {
     public static String TAG = CateringService.class.getSimpleName();
+    private final IBinder binder = new LocalBinder();
 
     public CateringService() {
+    }
+
+    int add(int fno, int sno){
+        return fno + sno;
+    }
+
+    String getAds(){
+        return "this is the latest add from server";
     }
 
     @Override
@@ -36,7 +46,13 @@ public class CateringService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+        return binder;
+    }
+
+    public class LocalBinder extends Binder {
+        CateringService getService() {
+            // Return this instance of LocalService so clients can call public methods
+            return CateringService.this;
+        }
     }
 }
