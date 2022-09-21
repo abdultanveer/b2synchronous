@@ -8,14 +8,14 @@
     tools:context=".NewsActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
+        android:id="@+id/headlinesFrag"
         android:name="com.example.b2synchronous.HeadlinesFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
+        android:id="@+id/contentFrag"
         android:name="com.example.b2synchronous.NewsContentFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

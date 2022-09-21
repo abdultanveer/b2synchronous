@@ -12,6 +12,8 @@ class NewsActivity : AppCompatActivity(), HeadlinesFragment.HeadlinesClickListen
 
     override fun onHeadlineClicked(headline: String) {
         Toast.makeText(this,headline, Toast.LENGTH_SHORT).show()
+        var newsContentFragment = supportFragmentManager.findFragmentById(R.id.contentFrag) as NewsContentFragment
+        newsContentFragment.setHeadline(headline)
 
     }
 }
