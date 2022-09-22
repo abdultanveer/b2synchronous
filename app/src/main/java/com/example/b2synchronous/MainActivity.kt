@@ -164,4 +164,19 @@ class MainActivity : AppCompatActivity(), View.OnFocusChangeListener {
 
     fun triple(x: Int) =  3 * x
 
-}
+
+    fun getDataCp(view: View) {
+            val uriSms = Uri.parse("content://cognizant.todo/entry")
+            var cursor = contentResolver.query(uriSms,null,null,null,null,null)
+            cursor?.moveToLast()
+
+            val titleIndex = cursor!!.getColumnIndexOrThrow("title")
+            val subtitleIndex = cursor!!.getColumnIndexOrThrow("subtitle")
+
+            val result = cursor.getString(titleIndex)+"\n"+cursor.getString(subtitleIndex)
+            Log.i(TAG, "getDataCp: result ="+ result)
+
+
+        }
+    }
+

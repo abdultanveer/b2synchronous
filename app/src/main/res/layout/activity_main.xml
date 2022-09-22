@@ -116,4 +116,15 @@
         android:text="Test"
         app:layout_constraintBottom_toBottomOf="@+id/etPassword"
         app:layout_constraintStart_toEndOf="@+id/etPassword" />
+
+    <Button
+        android:id="@+id/btnget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="77dp"
+        android:onClick="getDataCp"
+        android:text="get cp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
