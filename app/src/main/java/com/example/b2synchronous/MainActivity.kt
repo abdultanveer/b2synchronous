@@ -78,7 +78,9 @@ class MainActivity : AppCompatActivity(), View.OnFocusChangeListener {
     fun clickHandler(viewClicked: View) {
         when(viewClicked.id){
             R.id.btnLogin -> {startHomeActivity()}
-            R.id.btnDial ->{startDialer()}
+            R.id.btnDial ->{
+
+                startDialer()}
             R.id.btnAlarm -> {createAlarm("sync",10,59)}
             R.id.btnMTest -> {getSetData()}
         }

@@ -6,15 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.example.b2synchronous.EditTextWithClear
+    <com.example.b2synchronous.views.EditTextWithClear
         android:id="@+id/etName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="59dp"
+        android:layout_marginBottom="379dp"
         android:ems="10"
         android:hint="@string/enter_name"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/dialView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -127,4 +129,19 @@
         android:text="get cp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <com.example.b2synchronous.views.DialView
+        android:id="@+id/dialView"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="48dp"
+        app:fanColor1="#FFEB3B"
+        app:fanColor2="#CDDC39"
+        app:fanColor3="#009688"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

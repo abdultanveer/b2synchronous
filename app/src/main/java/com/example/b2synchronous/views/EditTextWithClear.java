@@ -1,4 +1,4 @@
-package com.example.b2synchronous;
+package com.example.b2synchronous.views;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.res.ResourcesCompat;
+
+import com.example.b2synchronous.R;
 
 public class EditTextWithClear extends AppCompatEditText {
 
