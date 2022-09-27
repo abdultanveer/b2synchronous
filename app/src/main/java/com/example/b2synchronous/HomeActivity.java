@@ -1,5 +1,6 @@
 package com.example.b2synchronous;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
@@ -12,9 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.b2synchronous.databases.DbOperations;
-import com.example.b2synchronous.databases.FeedReaderContract;
 import com.google.firebase.FirebaseApp;
 import com.example.b2synchronous.databases.FeedReaderContract.FeedEntry;
+
+import kotlinx.coroutines.GlobalScope;
 
 public class HomeActivity extends AppCompatActivity {
     EditText etContact;
@@ -47,8 +49,17 @@ public class HomeActivity extends AppCompatActivity {
        // sendContactData();
         switch (viewClicked.getId()){
             case R.id.button2:
-                searchBooks();
-                break;
+
+                new Thread(){
+                    @Override
+                    public void run() {
+                        super.run();
+                        throw new RuntimeException("Test Crash") ;
+                    }
+                }.start();
+
+        //searchBooks();
+             //   break;
             case R.id.btnFcm:
 
                 break;
