@@ -2,8 +2,6 @@ package com.example.b2synchronous;
 
 import junit.framework.TestCase;
 
-import org.junit.Ignore;
-
 public class CalculatorTest extends TestCase {
 
     Calculator mCalculator;

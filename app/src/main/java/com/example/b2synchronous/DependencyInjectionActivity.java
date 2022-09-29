@@ -17,7 +17,6 @@ import javax.inject.Inject;
 public class DependencyInjectionActivity extends AppCompatActivity implements View.OnClickListener {
     EditText inUsername, inNumber;
     Button btnSave, btnGet;
-    private MyComponent myComponent;
 
     @Inject
     SharedPreferences sharedPreferencesByModule;
@@ -28,7 +27,7 @@ public class DependencyInjectionActivity extends AppCompatActivity implements Vi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dependency_injection);
         initViews();
-        myComponent = DaggerMyComponent.builder()
+        MyComponent myComponent = DaggerMyComponent.builder()
                 .sharedPrefModule(new SharedPrefModule(this))
                 .build();
         myComponent.inject(this);
