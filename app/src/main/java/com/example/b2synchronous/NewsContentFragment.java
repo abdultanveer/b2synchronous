@@ -5,6 +5,7 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
 
@@ -39,6 +40,9 @@ WebView webView;
         String encodedHtml = Base64.encodeToString(unencodedHtml.getBytes(),
                 Base64.NO_PADDING);
         webView.loadData(encodedHtml, "text/html", "base64");*/
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webView.addJavascriptInterface(new WebAppInterface(getContext()), "Android");
 
         loadHtmlAssets();
 

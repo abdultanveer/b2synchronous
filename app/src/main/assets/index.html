@@ -8,5 +8,13 @@
 <body>
 <p>This file was loaded from in-app content</p>
 <p><img src="/res/drawable/android_robot.png" alt="Android robot" width="100"></p>
+
+<input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
+
+<script type="text/javascript">
+    function showAndroidToast(toast) {
+        Android.showToast(toast);
+    }
+</script>
 </body>
 </html>
