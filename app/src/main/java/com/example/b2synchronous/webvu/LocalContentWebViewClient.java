@@ -1,4 +1,4 @@
-package com.example.b2synchronous;
+package com.example.b2synchronous.webvu;
 
 import android.net.Uri;
 import android.webkit.WebResourceRequest;
@@ -9,11 +9,11 @@ import androidx.annotation.RequiresApi;
 import androidx.webkit.WebViewAssetLoader;
 import androidx.webkit.WebViewClientCompat;
 
-class LocalContentWebViewClient extends WebViewClientCompat {
+public class LocalContentWebViewClient extends WebViewClientCompat {
 
     private final WebViewAssetLoader mAssetLoader;
 
-    LocalContentWebViewClient(WebViewAssetLoader assetLoader) {
+   public LocalContentWebViewClient(WebViewAssetLoader assetLoader) {
         mAssetLoader = assetLoader;
     }
 

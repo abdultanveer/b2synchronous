@@ -1,4 +1,4 @@
-package com.example.b2synchronous;
+package com.example.b2synchronous.webvu;
 
 import android.content.Context;
 import android.webkit.JavascriptInterface;
@@ -8,7 +8,7 @@ public class WebAppInterface {
     Context mContext;
 
     /** Instantiate the interface and set the context */
-    WebAppInterface(Context c) {
+    public  WebAppInterface(Context c) {
         mContext = c;
     }
 
